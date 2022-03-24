@@ -21,10 +21,8 @@ function concatStings(string, separator) {
     return nextStr;
   }
 
-  nextStr[Symbol.toPrimitive] = function (hint) {
-    if (hint === 'string') {
-      return currentStr;
-    }
+  nextStr.toString = function () {
+    return currentStr;
   };
 
   return nextStr;
